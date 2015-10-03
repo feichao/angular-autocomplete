@@ -1,0 +1,19 @@
+{
+  "name": "angular-autocomplete",
+  "version": "0.0.1",
+  "authors": [
+    "feichao.imayu.wan@gmail.com"
+  ],
+  "description": "angular autocomplete",
+  "keywords": [
+    "angular, autocomplete"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "1.3.15"
+  }
+}
