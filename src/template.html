@@ -1,0 +1,24 @@
+<div class="search-content" outside-click="vm.showHistory=false" ng-keydown="vm.getKey($event)">
+  <input ng-model="vm.searchText" placeholder="设备序列号或者型号" ng-focus="vm.showHistory=true" fcclear fc-class="clear-search" fc-icon-class="clear-search-icon">
+  <div class="search-list" ng-show="vm.showHistory">
+    <md-list ng-hide="vm.loading">
+      <md-list-item class="search-item " ng-repeat="item in vm.searchHistory" ng-click="vm.setSearchText(item)">{{ item.id }}</md-list-item>
+      <md-list-item class="other-item clear-history" ng-click="vm.clearHistory()" ng-show="vm.searchHistory.length > 0 && !vm.searchText">
+        <p>清除历史记录</p>
+      </md-list-item>
+      <md-list-item class="other-item" ng-show="vm.searchHistory.length === 0 && !vm.searchText">
+        <p>没有最近搜索历史</p>
+      </md-list-item>
+      <md-list-item class="other-item" ng-show="vm.noResult && vm.searchText">
+        <p>没有搜索到 “{{ vm.searchText }}”</p>
+      </md-list-item>
+    </md-list>
+    <md-progress-circular class="search-progress" ng-show="vm.loading" md-mode="indeterminate" md-diameter="30"></md-progress-circular>
+  </div>
+  <md-button class="md-icon-button md-primary search-button" aria-label="Search" ng-click="vm.setSearchText()">
+    <ng-md-icon icon="search" size="24"></ng-md-icon>
+    <md-tooltip>
+      Search
+    </md-tooltip>
+  </md-button>
+</div>
